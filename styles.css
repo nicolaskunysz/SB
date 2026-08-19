@@ -46,11 +46,15 @@ html, body {
     color: #333;
 }
 
+/* 🐋 UPDATED BG IMAGE CONTAINER WITH SEMI-TRANSPARENT TINT */
 .app-content {
     flex: 1;
     overflow-y: auto;
     padding: 15px;
-    background-color: #f8f9fa;
+    background-image: linear-gradient(rgba(248, 249, 250, 0.85), rgba(248, 249, 250, 0.85)), url('whale.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll;
 }
 
 .activity-banner {
@@ -176,6 +180,7 @@ html, body {
     padding: 15px;
     border-radius: 12px;
     margin-bottom: 15px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     display: flex;
     flex-direction: column;
     gap: 10px;
