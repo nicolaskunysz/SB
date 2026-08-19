@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>IPAA Threat Monitor Console</title>
+<style>
+    /* Base resets and custom dark background color setup */
+    body { margin:0; background:#0c0f12; font-family:system-ui,-apple-system,sans-serif; color:#fff; }
+    
+    /* 1. SOLID RED BANNER ON TOP WITH TITLE, CUSTOM LOGO & LINKS */
+    .banner { background:#e31e24; padding:20px 40px; display:flex; justify-content:space-between; align-items:center; }
+    
+    /* Brand alignment block combining custom image box and text title strings */
+    .brand-block { display:flex; align-items:center; gap:14px; }
+    .custom-logo-placeholder { width:35px; height:35px; background:rgba(255,255,255,0.2); border-radius:4px; object-fit:contain; border:1px dashed rgba(255,255,255,0.6); display:block; }
+    
+    .links a { color:#fff; text-decoration:none; margin-left:20px; font-weight:bold; font-size:14px; }
+    
+    /* 2. TYPABLE SEARCH BAR */
+    .search-zone { padding:30px; display:flex; justify-content:center; }
+    .input-box { width:100%; max-width:600px; padding:15px; background:#fff; color:#000; border-radius:6px; outline:none; font-size:15px; }
+    
+    /* Content wrapper box sizing matrix */
+    .content-area { max-width:1100px; margin:0 auto; padding:0 40px 60px 40px; }
+    
+    /* 3. RED GRID SYSTEM WITH STATS */
+    .stats-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:15px; margin:30px 0 5px 0; }
+    .stat-card { background:#e31e24; padding:18px; border-radius:6px; }
+    .label-row { display:flex; justify-content:space-between; font-weight:bold; font-size:14px; }
+    .bar-track { background:rgba(255,255,255,0.3); height:6px; border-radius:3px; margin-top:10px; overflow:hidden; }
+    .bar-fill { background:#fff; height:100%; }
+    
+    /* 4. GRID WITH ANIMAL IMAGE THUMBNAILS & DETAILS (12 ENTRIES) */
+    .animal-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:40px; }
+    .animal-card { background:#161b22; border:1px solid #2d333b; border-radius:10px; overflow:hidden; }
+    .img-thumb { width:100%; height:160px; object-fit:cover; display:block; background:#2d3748; }
+    
+    .details { padding:15px; display:flex; flex-direction:column; gap:6px; }
+    .badge { align-self:flex-start; background:#ff3b30; padding:3px 8px; border-radius:4px; font-size:11px; font-weight:bold; color:#fff; }
+    .excerpt { font-size:13px; color:#c9d1d9; margin:4px 0 0 0; line-height:1.4; }
+    
+    /* 5. BOTTOM UTILITY MENU FOOTER */
+    .footer { background:#0f141c; border-top:1px solid #21262d; padding:40px; display:grid; grid-template-columns:repeat(4,1fr); gap:20px; font-size:13px; }
+    .f-col b { color:#8b949e; text-transform:uppercase; letter-spacing:0.5px; font-size:12px; }
+    .f-col a { color:#c9d1d9; text-decoration:none; display:block; margin-top:8px; }
+</style>
+</head>
+<body>
+
+    <!-- 1. Red Banner Layer with Modified Title and Square Logo Anchor -->
+    <div class="banner">
+        <div class="brand-block">
+            <!-- 🖼️ CUSTOM LOGO IMAGE TAG (Looks locally for a file named logo.png) -->
+            <img src="logo.png" alt="Icon" class="custom-logo-placeholder" onerror="this.style.opacity='0.5';">
+            <div style="font-weight:900; font-size:19px; letter-spacing:-0.5px;">IPAA ENDANGERED SPECIES REGISTRY</div>
+        </div>
+        <div class="links">
+            <a href="#">About</a>
+            <a href="#">Assessment Process</a>
+            <a href="#">Publications</a>
+            <a href="#">Support Us</a>
+        </div>
+    </div>
+
+    <!-- 2. Typable Search Input Ribbon -->
+    <div class="search-zone">
+        <div class="input-box" contenteditable="true" placeholder="Names - common, scientific, regions etc..."></div>
+    </div>
+
+    <!-- Main Workspace -->
+    <div class="content-area">
+        <h1 style="font-size:32px; font-weight:800; margin:0 0 5px 0;">More than 49,500 species are threatened with extinction</h1>
+        <p style="font-size:18px; color:#94a3b8; margin:0;">That is 28% of all assessed species.</p>
+
+        <!-- 3. Red Stats Data Deck Grid -->
+        <div class="stats-grid">
+            <div class="stat-card"><div class="label-row"><span>Amphibians</span><span>41%</span></div><div class="bar-track"><div class="bar-fill" style="width:41%"></div></div></div>
+            <div class="stat-card"><div class="label-row"><span>Mammals</span><span>26%</span></div><div class="bar-track"><div class="bar-fill" style="width:26%"></div></div></div>
+            <div class="stat-card"><div class="label-row"><span>Conifers</span><span>34%</span></div><div class="bar-track"><div class="bar-fill" style="width:34%"></div></div></div>
+            <div class="stat-card"><div class="label-row"><span>Birds</span><span>11%</span></div><div class="bar-track"><div class="bar-fill" style="width:11%"></div></div></div>
+            <div class="stat-card"><div class="label-row"><span>Sharks & Rays</span><span>38%</span></div><div class="bar-track"><div class="bar-fill" style="width:38%"></div></div></div>
+            <div class="stat-card"><div class="label-row"><span>Reef corals</span><span>44%</span></div><div class="bar-track"><div class="bar-fill" style="width:44%"></div></div></div>
+            <div class="stat-card"><div class="label-row"><span>Selected Crustaceans</span><span>28%</span></div><div class="bar-track"><div class="bar-fill" style="width:28%"></div></div></div>
+            <div class="stat-card"><div class="label-row"><span>Reptiles</span><span>21%</span></div><div class="bar-track"><div class="bar-fill" style="width:21%"></div></div></div>
+            <div class="stat-card"><div class="label-row"><span>Cycads</span><span>71%</span></div><div class="bar-track"><div class="bar-fill" style="width:71%"></div></div></div>
+        </div>
+
+        <!-- 4. Animal Grid Output Anchor -->
+        <div class="animal-grid" id="animalsTargetContainer"></div>
+
+        <!-- Dynamic See More Link Action Trigger -->
+        <div style="text-align:center; margin-top:35px;"><a href="#" style="color:#fff; font-weight:bold; text-decoration:none; padding:12px 30px; border:1px solid #444c56; border-radius:6px; background:#161b22;" onclick="alert('End of current data loops.')">Load More Species</a></div>
+    </div>
+
+    <!-- 5. Bottom Help & Contact Menu Footer Bar -->
+    <div class="footer">
+        <div class="f-col"><b>Help & Support</b><a href="#">Database FAQ</a><a href="#">Syntax Guides</a></div>
+        <div class="f-col"><b>Contact Office</b><a href="#">General Inquiries</a><a href="#">Media Hub</a></div>
+        <div class="f-col"><b>Resources</b><a href="#">Taxonomic Codes</a><a href="#">GIS Mapping</a></div>
+        <div class="f-col"><b>Legal Terms</b><a href="#">Privacy Directives</a><a href="#">Data Citations</a></div>
+    </div>
+
+    <!-- AUTOMATED DATA CARD BUILD LOOP -->
+    <script>
+        const dataset = [
+            { t: "Bengal Tiger", s: "Panthera tigris", b: "#ff3b30", c: "#fff", st: "Endangered", d: "Fragmented tracking zones across core forest reserves." },
+            { t: "Javan Rhino", s: "Rhinoceros sondaicus", b: "#ff3b30", c: "#fff", st: "Critically Endangered", d: "Confined entirely to a localized sanctuary reserve." },
+            { t: "Giant Panda", s: "Ailuropoda melanoleuca", b: "#ffcc00", c: "#000", st: "Vulnerable", d: "Targeted bamboo preserve grids show slight recovery." },
+            { t: "Blue Whale", s: "Balaenoptera musculus", b: "#ff3b30", c: "#fff", st: "Endangered", d: "Impacted heavily by deep shipping corridor tracks." },
+            { t: "Hawksbill Turtle", s: "Eretmochelys imbricata", b: "#ff3b30", c: "#fff", st: "Critically Endangered", d: "Coastal egg poaching and coral reef contractions." },
+            { t: "Forest Elephant", s: "Loxodonta cyclotis", b: "#ff3b30", c: "#fff", st: "Critically Endangered", d: "Critically EndangeredIllegal ivory trafficking vectors deplete baselines." },
+            { t: "Sumatran Orangutan", s: "Pongo abelii", b: "#ff3b30", c: "#fff", st: "Critically Endangered", d: "Widespread commercial timber concession operations." },
+            { t: "California Condor", s: "Gymnogyps californianus", b: "#ff3b30", c: "#fff", st: "Critically Endangered", d: "Intense preservation management tracking active." },
+            { t: "Great Hammerhead", s: "Sphyrna mokarran", b: "#ff3b30", c: "#fff", st: "Critically Endangered", d: "Commercial marine boundary bycatch yield collapses." },
+            { t: "Marine Iguana", s: "Amblyrhynchus cristatus", b: "#ffcc00", c: "#000", st: "Vulnerable", d: "Endemic nesting zones impacted by coastal thermal anomalies." },
+            { t: "Staghorn Coral", s: "Acropora cervicornis", b: "#ff3b30", c: "#fff", st: "Critically Endangered", d: "Severe ocean acidification causing baseline skeletal bleaching." },
+            { t: "Mountain Gorilla", s: "Gorilla beringei beringei", b: "#ff3b30", c: "#fff", st: "Endangered", d: "Enclosed territorial parks subject to micro-climate variables." }
+        ];
+
+        const container = document.getElementById('animalsTargetContainer');
+        dataset.forEach(item => {
+            const imageFilename = item.t.toLowerCase().replace(/ /g, "-") + ".jpg";
+
+            container.innerHTML += `
+                <div class="animal-card">
+                    <img src="${imageFilename}" alt="${item.t}" class="img-thumb">
+                    <div class="details">
+                        <h3 style="margin:0;">${item.t}</h3>
+                        <i style="color:#8b949e;font-size:13px">${item.s}</i>
+                        <span class="badge" style="background:${item.b};color:${item.c}">${item.st}</span>
+                        <p class="excerpt">${item.d}</p>
+                    </div>
+                </div>
+            `;
+        });
+    </script>
+
+</body>
+</html>
