@@ -4,20 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Website</title>
+    <style>
+        /* Centers everything on the page */
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* Styles the bold title */
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        /* Removes bullet points entirely from the list */
+        ul {
+            list-style: none; /* Corrected: completely removes bullet points */
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* Spaces out the buttons */
+            width: 100%;
+            max-width: 300px; /* Limits button width */
+        }
+
+        li {
+            width: 100%;
+        }
+
+        /* Turns plain links into clean buttons */
+        a {
+            display: block;
+            text-align: center;
+            padding: 12px 20px;
+            background-color: #0076ff; /* Clean blue color */
+            color: white;
+            text-decoration: none; /* Removes underline */
+            font-weight: bold;
+            border-radius: 8px; /* Rounded corners */
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+
+        /* Subtle hover effect when a cursor moves over the button */
+        a:hover {
+            background-color: #0055b8;
+            transform: translateY(-1px);
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Bold Title -->
-    <h1><b>My Web Project</b></h1>
+    <!-- Bold Centered Title -->
+    <h1><b>SB SCREENS GFX</b></h1>
 
-    <!-- Navigation Links -->
+    <!-- Button Navigation Links -->
     <nav>
         <ul>
-            <!-- Replace the '#' with your actual file names later (e.g., "about.html") -->
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About Me</a></li>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#">TRIP ADVISOR REVIEW</a></li>
+            <li><a href="#">SOCIAL MEDIA SCROLL</a></li>
         </ul>
     </nav>
 
