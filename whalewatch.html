@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Whale Watching Review (Action Prop)</title>
     
-    <!-- 📱 FULLSCREEN IMMERSIVE WEB APP CONFIGURATION (HIDES THE BROWSER URL BAR) -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="mobile-web-app-capable" content="yes">
@@ -109,7 +108,6 @@
         </main>
 
         <footer class="action-footer">
-            <!-- 🔄 Updated Cancel Button to call Reset Logic -->
             <button class="btn-cancel" onclick="resetFormProp()">Cancel</button>
             <button class="btn-publish" onclick="alert('Review Published!')">Publish</button>
         </footer>
@@ -125,7 +123,6 @@
             5: { text: "Excellent", color: "text-green" }
         };
 
-        // RATING INPUT INTERACTION ENGINE
         document.querySelectorAll('.rating-circles').forEach(group => {
             const circles = group.querySelectorAll('.circle');
             const label = group.nextElementSibling;
@@ -153,18 +150,14 @@
             });
         });
 
-        // 🔄 PROP CLEAN RESET FUNCTIONALITY
         function resetFormProp() {
-            // 1. Wipe out text contents inside input divs
             document.getElementById('titleInput').textContent = "";
             document.getElementById('bodyInput').textContent = "";
 
-            // 2. Clear out filled circle states across all metrics
             document.querySelectorAll('.circle').forEach(c => {
                 c.classList.remove('filled');
             });
 
-            // 3. Reset text and fully hide adjectives columns
             document.querySelectorAll('.rating-word-large, .rating-word-small').forEach(label => {
                 label.textContent = "";
                 label.classList.remove('visible', 'text-red', 'text-orange', 'text-yellow', 'text-lightgreen', 'text-green');
