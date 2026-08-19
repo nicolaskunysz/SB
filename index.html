@@ -14,11 +14,10 @@
             justify-content: center;
             min-height: 100vh;
             margin: 0;
-            background-color: #121212; /* Dark mode background for set organization */
+            background-color: #121212; /* Dark background to look neat on set */
             color: #ffffff;
         }
 
-        /* Styles the bold title */
         h1 {
             font-size: 2rem;
             margin-bottom: 2rem;
@@ -34,19 +33,19 @@
             flex-direction: column;
             gap: 15px; 
             width: 100%;
-            max-width: 320px; 
+            max-width: 340px; 
         }
 
         li {
             width: 100%;
         }
 
-        /* Turns plain links into clean action buttons */
+        /* Turns plain links into clean standalone buttons */
         a {
             display: block;
             text-align: center;
             padding: 14px 20px;
-            background-color: #22c55e; /* Vibrant prop trigger green */
+            background-color: #22c55e; /* Vibrant action green */
             color: white;
             text-decoration: none; 
             font-weight: bold;
@@ -54,7 +53,6 @@
             transition: background-color 0.2s ease, transform 0.1s ease;
         }
 
-        /* Subtle hover/tap effect */
         a:hover {
             background-color: #16a34a;
             transform: translateY(-1px);
@@ -64,15 +62,16 @@
 <body>
 
     <!-- Bold Centered Production Menu Title -->
-    <h1><b>SB GFX Screen Props</b></h1>
+    <h1><b>Active Screen Props</b></h1>
 
-    <!-- Button Navigation Links -->
+    <!-- Navigation Menu Buttons -->
     <nav>
         <ul>
-            <!-- Connected target to launch your active phone interface prop -->
-            <li><a href="whalewatch.html">Whale Watching Review Screen</a></li>
-            <li><a href="#">Prop Screen 2 (Empty)</a></li>
-            <li><a href="#">Prop Screen 3 (Empty)</a></li>
+            <!-- Connected phone screen prop button -->
+            <li><a href="whalewatch.html">Whale Watching Review (Smartphone Prop)</a></li>
+            
+            <!-- Connected new laptop screen prop button -->
+            <li><a href="iucn.html">IPAA Species Registry (MacBook 13" Prop)</a></li>
         </ul>
     </nav>
 
