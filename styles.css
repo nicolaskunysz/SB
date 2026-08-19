@@ -53,7 +53,6 @@ html, body {
     background-color: #f8f9fa;
 }
 
-/* ACTIVITY BANNER (HEIGHT JUSTIFIED) */
 .activity-banner {
     background: #ffffff;
     border: 1px solid #e2e8f0;
@@ -84,7 +83,6 @@ html, body {
     line-height: 1.2;
 }
 
-/* ACTIVITY DATE & TIME TIMESTAMP */
 .activity-timestamp {
     background: white;
     padding: 12px 15px;
@@ -109,7 +107,6 @@ html, body {
     color: #0f172a;
 }
 
-/* RATING MATRIX */
 .rating-card {
     background: white;
     padding: 15px;
@@ -132,7 +129,6 @@ html, body {
 .rating-group { display: flex; align-items: center; gap: 10px; }
 .rating-circles { display: flex; gap: 5px; }
 
-/* INTERACTIVE RATING CIRCLES */
 .circle { 
     border-radius: 50%; 
     box-sizing: border-box; 
@@ -155,23 +151,18 @@ html, body {
 .row-large .circle { width: 20px; height: 20px; }
 .row-small .circle { width: 14px; height: 14px; }
 
-/* ADJECTIVE TYPOGRAPHY */
-.rating-word-large { 
-    font-size: 0.85rem; 
-    font-weight: 500;
+.rating-word-large, .rating-word-small { 
     text-transform: uppercase; 
     letter-spacing: 0.5px;
     width: 80px;
     text-align: right;
+    visibility: hidden; 
 }
+.rating-word-large { font-size: 0.85rem; font-weight: 500; }
+.rating-word-small { font-size: 0.7rem; font-weight: 500; }
 
-.rating-word-small { 
-    font-size: 0.7rem; 
-    font-weight: 500; 
-    text-transform: uppercase; 
-    letter-spacing: 0.5px;
-    width: 80px; 
-    text-align: right; 
+.rating-word-large.visible, .rating-word-small.visible {
+    visibility: visible;
 }
 
 .text-red { color: #ef4444; }
@@ -180,7 +171,6 @@ html, body {
 .text-lightgreen { color: #a3e635; }
 .text-green { color: #22c55e; }
 
-/* TYPABLE BOXES */
 .review-card {
     background: white;
     padding: 15px;
@@ -194,7 +184,7 @@ html, body {
 .editor-label { font-size: 0.75rem; font-weight: bold; color: #64748b; text-transform: uppercase; }
 
 .prop-input-title, .prop-input-body {
-    padding: 8px;
+    padding: 12px;
     border: 1px dashed #cbd5e1;
     border-radius: 6px;
     background-color: #fff;
@@ -203,12 +193,17 @@ html, body {
     user-select: text;
     outline: none;
 }
+.prop-input-title { font-size: 1.1rem; font-weight: 700; min-height: 24px; }
+.prop-input-body { font-size: 0.95rem; line-height: 1.4; min-height: 120px; }
+.prop-input-title:focus, .prop-input-body:focus { border-color: #0076ff; }
 
-.prop-input-title { font-size: 1.1rem; font-weight: 700; }
-.prop-input-body { font-size: 0.95rem; line-height: 1.4; min-height: 100px; }
-.prop-input-title:focus, .prop-input-body:focus { border-color: #ef4444; }
+[contenteditable="true"]:empty:before {
+    content: attr(placeholder);
+    color: #cbd5e1;
+    font-weight: normal;
+    font-style: italic;
+}
 
-/* FOOTER ACTIONS */
 .action-footer {
     background-color: #ffffff;
     border-top: 1px solid #e2e8f0;
@@ -228,7 +223,6 @@ html, body {
     text-align: center;
     border: none;
 }
-
 .btn-cancel { background-color: #f1f5f9; color: #475569; text-decoration: none; }
 .btn-publish { background-color: #ef4444; color: white; }
 .btn-publish:active { background-color: #b91c1c; }
