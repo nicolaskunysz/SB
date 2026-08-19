@@ -2,8 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Whale Watching Review (Action Prop)</title>
+    
+    <!-- 📱 FULLSCREEN IMMERSIVE WEB APP CONFIGURATION (HIDES THE BROWSER URL BAR) -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="mobile-web-app-capable" content="yes">
+    
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -18,19 +24,16 @@
 
         <main class="app-content">
 
-            <!-- Banner Component pointing to your uploaded local file -->
             <div class="activity-banner">
-                <img src="whale.jpg" alt="Whale Breaching" class="activity-photo">
+                <img src="whale.jpg" alt="Whale" class="activity-photo">
                 <h1 class="activity-name">The Classic Whale Watching Tour</h1>
             </div>
 
-            <!-- Timestamp Component -->
             <div class="activity-timestamp">
                 <span class="timestamp-label">Date and Time of Activity</span>
-                <span class="timestamp-value">Wed 08.05.2026 </span>
+                <span class="timestamp-value">Wednesday August 5 2026 at 09:35</span>
             </div>
 
-            <!-- Interactive Ratings Component -->
             <div class="rating-card">
                 
                 <!-- ROW 1: OVERALL EXPERIENCE -->
@@ -38,13 +41,13 @@
                     <span class="metric-label">Overall Rating</span>
                     <div class="rating-group">
                         <div class="rating-circles">
-                            <div class="circle c-1 filled" data-value="1"></div>
+                            <div class="circle c-1" data-value="1"></div>
                             <div class="circle c-2" data-value="2"></div>
                             <div class="circle c-3" data-value="3"></div>
                             <div class="circle c-4" data-value="4"></div>
                             <div class="circle c-5" data-value="5"></div>
                         </div>
-                        <span class="rating-word-large text-red">Terrible</span>
+                        <span class="rating-word-large"></span>
                     </div>
                 </div>
 
@@ -53,13 +56,13 @@
                     <span class="sub-label">Value for money</span>
                     <div class="rating-group">
                         <div class="rating-circles">
-                            <div class="circle c-1 filled" data-value="1"></div>
+                            <div class="circle c-1" data-value="1"></div>
                             <div class="circle c-2" data-value="2"></div>
                             <div class="circle c-3" data-value="3"></div>
                             <div class="circle c-4" data-value="4"></div>
                             <div class="circle c-5" data-value="5"></div>
                         </div>
-                        <span class="rating-word-small text-red">Terrible</span>
+                        <span class="rating-word-small"></span>
                     </div>
                 </div>
 
@@ -68,13 +71,13 @@
                     <span class="sub-label">Guide</span>
                     <div class="rating-group">
                         <div class="rating-circles">
-                            <div class="circle c-1 filled" data-value="1"></div>
+                            <div class="circle c-1" data-value="1"></div>
                             <div class="circle c-2" data-value="2"></div>
                             <div class="circle c-3" data-value="3"></div>
                             <div class="circle c-4" data-value="4"></div>
                             <div class="circle c-5" data-value="5"></div>
                         </div>
-                        <span class="rating-word-small text-red">Terrible</span>
+                        <span class="rating-word-small"></span>
                     </div>
                 </div>
 
@@ -83,41 +86,36 @@
                     <span class="sub-label">Meeting or pickup</span>
                     <div class="rating-group">
                         <div class="rating-circles">
-                            <div class="circle c-1 filled" data-value="1"></div>
+                            <div class="circle c-1" data-value="1"></div>
                             <div class="circle c-2" data-value="2"></div>
                             <div class="circle c-3" data-value="3"></div>
                             <div class="circle c-4" data-value="4"></div>
                             <div class="circle c-5" data-value="5"></div>
                         </div>
-                        <span class="rating-word-small text-red">Terrible</span>
+                        <span class="rating-word-small"></span>
                     </div>
                 </div>
 
             </div>
 
-            <!-- Typable Component -->
             <div class="review-card">
                 <span class="editor-label">Review Title</span>
-                <div class="prop-input-title" contenteditable="true" spellcheck="false">
-                    Not a single whale. Avoid!
-                </div>
+                <div id="titleInput" class="prop-input-title" contenteditable="true" spellcheck="false" placeholder="Title your review..."></div>
 
                 <span class="editor-label">Review Details</span>
-                <div class="prop-input-body" contenteditable="true" spellcheck="false">
-                    We spent hours freezing on the boat and didn't even see a fin. Complete waste of money.
-                </div>
+                <div id="bodyInput" class="prop-input-body" contenteditable="true" spellcheck="false" placeholder="Share your experience here..."></div>
             </div>
 
         </main>
 
         <footer class="action-footer">
-            <a href="index.html" class="btn-cancel">Cancel</a>
+            <!-- 🔄 Updated Cancel Button to call Reset Logic -->
+            <button class="btn-cancel" onclick="resetFormProp()">Cancel</button>
             <button class="btn-publish" onclick="alert('Review Published!')">Publish</button>
         </footer>
 
     </div>
 
-    <!-- SCRIPT ENGINE Logic -->
     <script>
         const adjectives = {
             1: { text: "Terrible", color: "text-red" },
@@ -127,6 +125,7 @@
             5: { text: "Excellent", color: "text-green" }
         };
 
+        // RATING INPUT INTERACTION ENGINE
         document.querySelectorAll('.rating-circles').forEach(group => {
             const circles = group.querySelectorAll('.circle');
             const label = group.nextElementSibling;
@@ -144,15 +143,33 @@
                         }
                     });
 
-                    label.className = label.classList.contains('rating-word-large') 
+                    const baseClass = group.closest('.rating-row').classList.contains('row-large') 
                         ? 'rating-word-large' 
                         : 'rating-word-small';
-
+                    
+                    label.className = `${baseClass} visible ${adjectives[ratingValue].color}`;
                     label.textContent = adjectives[ratingValue].text;
-                    label.classList.add(adjectives[ratingValue].color);
                 });
             });
         });
+
+        // 🔄 PROP CLEAN RESET FUNCTIONALITY
+        function resetFormProp() {
+            // 1. Wipe out text contents inside input divs
+            document.getElementById('titleInput').textContent = "";
+            document.getElementById('bodyInput').textContent = "";
+
+            // 2. Clear out filled circle states across all metrics
+            document.querySelectorAll('.circle').forEach(c => {
+                c.classList.remove('filled');
+            });
+
+            // 3. Reset text and fully hide adjectives columns
+            document.querySelectorAll('.rating-word-large, .rating-word-small').forEach(label => {
+                label.textContent = "";
+                label.classList.remove('visible', 'text-red', 'text-orange', 'text-yellow', 'text-lightgreen', 'text-green');
+            });
+        }
     </script>
 
 </body>
